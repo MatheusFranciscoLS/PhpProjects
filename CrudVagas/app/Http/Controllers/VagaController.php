@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\Vaga;
 use Illuminate\Http\Request;
-use Ramsey\Uuid\Type\Decimal;
+use App\Models\Vaga;
+
 
 class VagaController extends Controller
 {
@@ -15,7 +14,7 @@ class VagaController extends Controller
     public function index()
     {
         $vagas = Vaga::all();
-        return view('vagas.index', compact('vagas'));
+        return view('vagas.index',compact('vagas'));
     }
 
     /**
@@ -32,15 +31,17 @@ class VagaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'titulo' => 'required',
-            'descricao' => 'required',
-            'setor' => 'required',
-            'remuneracao' => 'required|decimal',
-            'empresa' => 'required'
-        ]);
-        Vaga::create($request->all());
+            'titulo'=>'required',
+            'descricao'=>'required',
+            'setor'=> 'required',
+            'remuneracao'=> 'required|numeric',
+            'empresa'=> 'required',
+
+        ]);                 
+        Vaga::create($request->all());              
         return redirect()->route('vagas.index')
-            ->with('success', 'Vaga criada com sucesso.');
+        ->with('success', 'Vaga criada com sucesso.');
+
     }
 
     /**
@@ -48,7 +49,8 @@ class VagaController extends Controller
      */
     public function show(Vaga $vaga)
     {
-        return view('vagas.show', compact('vaga'));
+        return view('vagas.show',compact('vaga')); 
+        
     }
 
     /**
@@ -56,7 +58,7 @@ class VagaController extends Controller
      */
     public function edit(Vaga $vaga)
     {
-        return view('vagas.edit', compact('vaga'));
+        return view('vagas.edit',compact('vaga')); 
     }
 
     /**
@@ -65,15 +67,16 @@ class VagaController extends Controller
     public function update(Request $request, Vaga $vaga)
     {
         $request->validate([
-            'titulo' => 'required',
-            'descricao' => 'required',
-            'setor' => 'required',
-            'remuneracao' => 'required|decimal',
-            'empresa' => 'required'
+            'titulo'=>'required',
+            'descricao'=>'required',
+            'setor'=> 'required',
+            'remuneracao'=> 'required|numeric',
+            'empresa'=> 'required',
+
         ]);
-        Vaga::update($request->all());
+        $vaga::update($request->all());
         return redirect()->route('vagas.index')
-            ->with('success', 'Vaga atualizada com sucesso.');
+        ->with('success', 'Vaga criada com sucesso.');
     }
 
     /**
@@ -82,7 +85,9 @@ class VagaController extends Controller
     public function destroy(Vaga $vaga)
     {
         $vaga->delete();
+
         return redirect()->route('vagas.index')
-            ->with('success', 'Vaga Deletada com Sucesso.');
+                         ->with('success', 'Vaga Deletada com Sucesso.');
+  
     }
 }

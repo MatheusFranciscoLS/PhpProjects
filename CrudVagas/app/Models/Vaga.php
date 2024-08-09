@@ -14,6 +14,7 @@ class Vaga extends Model
         'descricao',
         'setor',
         'remuneracao',
-        'empresa'
+        'empresa',
+
     ];
 }
