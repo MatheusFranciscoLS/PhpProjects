@@ -25,12 +25,18 @@ Route::post('/login',[UserController::class, 'login'])->name('usuarios.controlle
 //Rota para a página interna
 Route::get('/dashboard',[DashboardController::class,'index'])->middleware('auth')->name('dashboard');
 //Rota do logout
-Route::post('/logout', [UserController::class, 'logout']);
+Route::post('/logout', [UserController::class, 'logout'])->name('usuarios.logout');
 
 Route::resource('produtos', ProdutoController::class)->middleware(ProdutosMiddleware::class)->except('show');
 
 // visualização de um produto específico
 Route::get('produtos/{produto}', [ProdutoController::class, 'show'])->middleware('auth')->name('produtos.show');
 
-//rota para adicionar um produto no carrinho
-Route::post('carrinho/add/{produto}', [CarrinhoController::class, 'add'])->middleware('auth')->name('carrinho.add');
+// routes/web.php
+Route::middleware('auth')->group(function () {
+    Route::get('/carrinho', [CarrinhoController::class, 'index'])->name('carrinho.index');
+    Route::post('/carrinho/{produtoId}', [CarrinhoController::class, 'add'])->name('carrinho.add');
+    Route::delete('/carrinho/{id}', [CarrinhoController::class, 'remove'])->name('carrinho.remove');
+    Route::post('/carrinho/finalizar', [CarrinhoController::class, 'finalizarCompra'])->name('carrinho.finalizarCompra');
+});
+

@@ -1,0 +1,13 @@
+footer {
+    background-color: #f8f9fa; /* Cor de fundo leve */
+    color: #6c757d; /* Cor do texto */
+}
+
+footer a {
+    color: #007bff; /* Cor dos links */
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline; /* Sublinha os links ao passar o mouse */
+}

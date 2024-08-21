@@ -10,11 +10,15 @@ class DashboardController extends Controller
     public function index(Request $request)
     {
         $search = $request->input('search');
-        $produtos = Produto::when($search, function ($query, $search) {
-            return $query->where('nome', 'like', "%{$search}%")
-                ->orWhere('descricao', 'like', "%{$search}%")
-                ->orWhere('categoria', 'like', "%{$search}%");
-        })->get();
+
+        $produtos = Produto::query()
+            ->when($search, function ($query, $search) {
+                $search = strtolower($search); // Converta a pesquisa para minúsculas
+                return $query->whereRaw('LOWER(nome) LIKE ?', ["%{$search}%"])
+                    ->orWhereRaw('LOWER(descricao) LIKE ?', ["%{$search}%"])
+                    ->orWhereRaw('LOWER(categoria) LIKE ?', ["%{$search}%"]);
+            })
+            ->get();
 
         return view('usuarios.dashboard', compact('produtos'));
     }

@@ -1,12 +1,16 @@
 @extends('layouts.app')
 
+@section('styles')
+    <!-- Adicione seus estilos personalizados aqui -->
+@endsection
 
 @section('content')
     <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             @foreach ($produtos as $index => $produto)
                 <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
-                    <img src=" " class="d-block w-100" alt="{{ $produto->nome }}">
+                    <!-- Atualize o caminho da imagem para usar o caminho da imagem do produto -->
+                    <img src="{{ asset('assets/img/' . $produto->img) }}" class="d-block w-100" alt="{{ $produto->nome }}">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>{{ $produto->nome }}</h5>
                         <p>{{ $produto->descricao }}</p>

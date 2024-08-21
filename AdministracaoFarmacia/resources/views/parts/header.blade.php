@@ -1,6 +1,7 @@
+<!-- resources/views/parts/header.blade.php -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Administração Farmacia</a>
+        <a class="navbar-brand" href="/">Administração Farmacia</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -16,11 +17,16 @@
                             <a class="nav-link" href="/produtos">Produtos</a>
                         </li>
                     @endif
-                    @if (Auth::check())
-                        <li class="nav-item">
-                            <a class="nav-link" href="/dashboard">Dashboard</a>
-                        </li>
-                    @endif
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/carrinho">Carrinho 
+                            @if ($quantidadeItens = Auth::user()->carrinho()->sum('quantidade'))
+                                <span class="badge bg-primary">{{ $quantidadeItens }}</span>
+                            @endif
+                        </a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="">Perfil</a>
                     </li>
@@ -30,7 +36,7 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <li>
-                                <form action="/logout" method="post" class="d-inline">
+                                <form action="{{ route('usuarios.logout') }}" method="post" class="d-inline">
                                     @csrf
                                     <button type="submit" class="dropdown-item">Logout</button>
                                 </form>

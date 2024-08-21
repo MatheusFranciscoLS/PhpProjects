@@ -1,0 +1,22 @@
+/* Adiciona estilo ao carrossel */
+#productCarousel {
+    width: 20%; /* Define a largura do carrossel */
+    margin: 0 auto; /* Centraliza o carrossel horizontalmente */
+}
+
+#productCarousel .carousel-item img {
+    width: 100%; /* Faz a imagem ocupar toda a largura do carrossel */
+    height: auto; /* Mantém a proporção da imagem */
+}
+
+#productCarousel .carousel-caption{
+    margin-bottom: -50px;
+color: rgb(0, 0, 0);
+font-weight: bold;
+}
+
+/* Ajusta a largura dos botões de controle */
+#productCarousel .carousel-control-prev,
+#productCarousel .carousel-control-next {
+    width: 20%; /* Define a largura dos botões de controle */
+}

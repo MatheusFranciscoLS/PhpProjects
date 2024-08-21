@@ -1,0 +1,56 @@
+/* public/assets/css/header.css */
+
+/* Estiliza o fundo da navbar */
+.navbar {
+    background-color: #f8f9fa; /* Cor de fundo clara */
+}
+
+/* Estiliza o texto da navbar */
+.navbar-brand {
+    font-weight: bold; /* Texto em negrito para a marca */
+}
+
+/* Estiliza os itens da navbar */
+.navbar-nav .nav-item .nav-link {
+    color: #343a40; /* Cor do texto */
+    font-size: 16px; /* Tamanho da fonte */
+    margin-right: 15px; /* Espaçamento entre os itens */
+}
+
+/* Estiliza o item ativo da navbar */
+.navbar-nav .nav-item .nav-link.active {
+    color: #007bff; /* Cor do texto ativo */
+    font-weight: bold; /* Texto em negrito para item ativo */
+}
+
+/* Estiliza o badge */
+.badge {
+    font-size: 12px; /* Tamanho da fonte do badge */
+    padding: 0.25em 0.4em; /* Tamanho do padding */
+    border-radius: 0.25rem; /* Arredondamento das bordas */
+}
+
+/* Estiliza o dropdown */
+.navbar-nav .nav-item.dropdown .dropdown-menu {
+    border-radius: 0.25rem; /* Arredondamento das bordas do dropdown */
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); /* Sombra */
+}
+
+/* Estiliza o botão de logout no dropdown */
+.dropdown-menu .dropdown-item {
+    color: #dc3545; /* Cor do texto do logout */
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #f8f9fa; /* Cor de fundo ao passar o mouse */
+}
+
+/* Estiliza o botão de toggle da navbar */
+.navbar-toggler {
+    border: none; /* Remove a borda do botão */
+}
+
+/* Estiliza o ícone do botão de toggle */
+.navbar-toggler-icon {
+    background-image: url('data:image/svg+xml;base64,...'); /* SVG do ícone */
+}
