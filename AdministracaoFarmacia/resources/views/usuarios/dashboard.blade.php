@@ -9,7 +9,6 @@
         </div>
     @endif
     
-<link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
 <div class="container">
     <h1>Dashboard de Produtos</h1>
     <br>

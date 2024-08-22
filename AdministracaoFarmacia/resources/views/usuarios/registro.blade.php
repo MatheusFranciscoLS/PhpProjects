@@ -35,7 +35,7 @@
             <label for="password_confirmation">Confirme a Senha</label>
             <input type="password" name="password_confirmation" class="form-control" required>
         </div>
-
+        <br>
         <button type="submit" class="btn btn-primary">Registrar-se</button>
     </form>
 </div>

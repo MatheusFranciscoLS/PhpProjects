@@ -30,8 +30,8 @@ class CarrinhoController extends Controller
 
         $produto = Produto::findOrFail($produtoId);
 
-        $itemExistente = Carrinho::where('usuario_id', $usuarioId)
-            ->where('produto_id', $produtoId)
+        $itemExistente = Carrinho::where('id_user', $usuarioId)
+            ->where('id_produto', $produtoId)
             ->first();
 
         if ($itemExistente) {
@@ -39,8 +39,8 @@ class CarrinhoController extends Controller
             $itemExistente->save();
         } else {
             Carrinho::create([
-                'usuario_id' => $usuarioId,
-                'produto_id' => $produtoId,
+                'id_user' => $usuarioId,
+                'id_produto' => $produtoId,
                 'quantidade' => $quantidade,
             ]);
         }
@@ -58,10 +58,15 @@ class CarrinhoController extends Controller
     }
 
     // Finalizar a compra
-    public function finalizarCompra()
+    public function finalizarCompra(Request $request)
     {
-        // Lógica para finalizar a compra
-        return redirect()->route('carrinho.index')->with('success', 'Compra finalizada com sucesso!');
+        $usuarioId = Auth::id();
+
+        // Limpar o carrinho do usuário
+        Carrinho::where('id_user', $usuarioId)->delete();
+
+        // Redirecionar com uma mensagem de sucesso
+        return redirect()->route('carrinho.index')->with('success', 'Compra finalizada com sucesso! O carrinho foi limpo.');
     }
 }
     

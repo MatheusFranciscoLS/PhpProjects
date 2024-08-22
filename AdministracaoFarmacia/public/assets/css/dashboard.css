@@ -1,7 +1,43 @@
-/* Adiciona um pouco de margem ao redor do conteúdo principal */
-.container {
-    margin-top: 20px;
-    margin-bottom: 20px;
+/* Estilos gerais para o corpo e html */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* Wrapper principal que envolve todo o conteúdo e o rodapé */
+.page-wrapper {
+    min-height: 100vh; /* Garante que o contêiner principal ocupe pelo menos a altura total da janela */
+    display: flex;
+    flex-direction: column; /* Organiza os filhos em coluna */
+}
+
+/* Estilos para o conteúdo principal */
+.content {
+    flex: 1; /* Faz com que o conteúdo principal ocupe todo o espaço disponível */
+    padding: 20px; /* Ajuste conforme necessário */
+    margin-bottom: 3rem; /* Espaçamento inferior para garantir que o conteúdo não sobreponha o rodapé */
+}
+
+/* Estilos para o rodapé */
+footer {
+    background-color: #f8f9fa; /* Cor de fundo leve */
+    color: #6c757d; /* Cor do texto */
+    position: fixed;
+    bottom: 0; /* Alinha o rodapé na parte inferior da janela */
+    width: 100%; /* Largura total da janela */
+    padding: 1rem 0; /* Espaçamento interno (padding) superior e inferior */
+    border-top: 1px solid #dee2e6; /* Linha de separação superior */
+    text-align: center; /* Centraliza o texto */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra para o rodapé */
+    z-index: 1000; /* Garante que o rodapé fique acima do conteúdo */
+}
+
+footer .container {
+    max-width: 1200px; /* Limita a largura do conteúdo */
+    margin: 0 auto; /* Centraliza o container horizontalmente */
+    padding: 0 1rem; /* Espaçamento interno lateral */
 }
 
 /* Estilo para o formulário de pesquisa */

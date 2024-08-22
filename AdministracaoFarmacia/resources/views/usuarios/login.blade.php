@@ -42,7 +42,7 @@
             <label for="password">Senha</label>
             <input type="password" name="password" class="form-control" required>
         </div>
-
+        <br>
         <button type="submit" class="btn btn-primary">Login</button>
     </form>
 

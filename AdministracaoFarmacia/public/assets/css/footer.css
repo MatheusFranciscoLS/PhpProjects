@@ -1,13 +1,41 @@
-footer {
-    background-color: #f8f9fa; /* Cor de fundo leve */
-    color: #6c757d; /* Cor do texto */
+/* Garante que o rodapé esteja no fundo da página */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Faz com que o corpo ocupe a altura total da tela */
+    
 }
 
+footer {
+    color: #212529; /* Cor do texto */
+    text-align: center;
+    padding: 1rem; /* Espaçamento interno do rodapé */
+    margin-top: auto; /* Empurra o rodapé para o fundo da página */
+
+}
+
+/* Garante que o rodapé tenha um container adequado */
+footer .container-fluid {
+    max-width: 1140px; /* Largura máxima do container */
+    margin: 0 auto; /* Centraliza o container horizontalmente */
+    padding: 0 15px; /* Adiciona espaçamento lateral */
+}
+
+
+/* Remove a margem e o padding dos parágrafos no rodapé */
+footer p {
+    margin: 0;
+    padding: 0;
+    
+}
+
+/* Estilo para links no rodapé */
 footer a {
     color: #007bff; /* Cor dos links */
-    text-decoration: none;
+    text-decoration: none; /* Remove o sublinhado */
 }
 
 footer a:hover {
-    text-decoration: underline; /* Sublinha os links ao passar o mouse */
+    text-decoration: underline; /* Sublinha o link ao passar o mouse */
+    
 }
